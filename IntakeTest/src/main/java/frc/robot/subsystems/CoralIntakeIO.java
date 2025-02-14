@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+package frc.robot.subsystems.Intake;
 
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
@@ -24,11 +24,20 @@ public class CoralIntakeIO extends SubsystemBase {
 
   // motor stuff
 
+  public void moveLeftMotor(double Speed) {
+    leftMotor.set(MathUtil.clamp(Speed, -0.5, 0.5));
+  }
+
+  public void moveRightMotor(double Speed) {
+    rightMotor.set(MathUtil.clamp(Speed, -0.5, 0.5));
+  }
+
   public boolean checkSensor() {
+    double sensorState = analogInput.getValue();
+    SmartDashboard.putNumber("input", sensorState);
 
-    SmartDashboard.putNumber("0", analogInput.getValue());
-
-    return true;
+    if (sensorState == 5) return true;
+    else return false;
   }
 
   public void stop() {

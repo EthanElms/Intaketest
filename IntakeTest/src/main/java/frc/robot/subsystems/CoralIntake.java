@@ -1,5 +1,6 @@
-package frc.robot.subsystems;
+package frc.robot.subsystems.Intake;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class CoralIntake extends SubsystemBase {
@@ -12,9 +13,18 @@ public class CoralIntake extends SubsystemBase {
     this.io = io;
   }
 
+  public void moveLeftMotor(double Speed) {
+    io.moveLeftMotor(Speed);
+  }
+
+  public void moveRightMotor(double Speed) {
+    io.moveRightMotor(Speed);
+  }
+
   @Override
   public void periodic() {
     intakeSensor = io.checkSensor();
+    SmartDashboard.putBoolean("boolean intake", intakeSensor);
   }
 
   public void stop() {

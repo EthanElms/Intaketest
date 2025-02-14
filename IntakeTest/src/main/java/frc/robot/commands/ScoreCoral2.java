@@ -1,7 +1,7 @@
-package frc.robot.commands;
+package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.CoralIntake;
+import frc.robot.subsystems.Intake.CoralIntake;
 
 public class ScoreCoral2 extends Command {
 
@@ -16,7 +16,8 @@ public class ScoreCoral2 extends Command {
   // for l2
   @Override
   public void execute() {
-
+    coralIntake.moveRightMotor(0.3);
+    coralIntake.moveLeftMotor(0.3);
   }
 
   @Override
